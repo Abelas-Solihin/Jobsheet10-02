@@ -19,18 +19,28 @@ public class BioskopWithScanner02 {
             sc.nextLine(); 
 
             if (pilihan == 1) {
-                System.out.println("Masukkan nama : ");
+                System.out.print("Masukkan nama: ");
                 nama = sc.nextLine();
-                System.out.println("Masukkan baris: ");
-                baris = sc.nextInt();
-                System.out.println("Masukkan kolom : ");
-                kolom = sc.nextInt();
-                sc.nextLine();
-                if (baris >= 1 && baris <= 4 && kolom >= 1 && kolom <= 2) {
-                    penonton[baris - 1][kolom - 1] = nama;
-                    System.out.println("Data penonton berhasil dimasukkan.");
-                } else {
-                    System.out.println("Baris atau kolom tidak valid.");
+
+                while (true) {
+                    System.out.print("Masukkan baris (1-4): ");
+                    baris = sc.nextInt();
+
+                    System.out.print("Masukkan kolom (1-2): ");
+                    kolom = sc.nextInt();
+                    sc.nextLine(); 1
+                    if (baris >= 1 && baris <= 4 && kolom >= 1 && kolom <= 2) {
+            
+                        if (penonton[baris - 1][kolom - 1] == null) {
+                            penonton[baris - 1][kolom - 1] = nama;
+                            System.out.println("Data penonton berhasil dimasukkan.");
+                            break; 
+                        } else {
+                            System.out.println("Kursi sudah terisi. Silakan pilih kursi lain.");
+                        }
+                    } else {
+                        System.out.println("Baris atau kolom tidak valid. Silakan masukkan nilai yang sesuai.");
+                    }
                 }
             } else if (pilihan == 2) {
                 System.out.println("Daftar penonton:");
@@ -38,11 +48,13 @@ public class BioskopWithScanner02 {
                     for (int j = 0; j < penonton[i].length; j++) {
                         if (penonton[i][j] != null) {
                             System.out.println("Baris " + (i + 1) + ", Kolom " + (j + 1) + ": " + penonton[i][j]);
+                        } else {
+                            System.out.println("Baris " + (i + 1) + ", Kolom " + (j + 1) + ": Kosong");
                         }
                     }
-               }
+                }
             } else if (pilihan == 3) {
-                System.out.println("Terima kasih! proses selesai.");
+                System.out.println("Terima kasih! Proses selesai.");
                 break;
             } else {
                 System.out.println("Pilihan tidak valid. Silakan coba lagi.");
