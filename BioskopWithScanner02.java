@@ -28,9 +28,9 @@ public class BioskopWithScanner02 {
 
                     System.out.print("Masukkan kolom (1-2): ");
                     kolom = sc.nextInt();
-                    sc.nextLine(); 1
+                    sc.nextLine(); 
                     if (baris >= 1 && baris <= 4 && kolom >= 1 && kolom <= 2) {
-            
+                        
                         if (penonton[baris - 1][kolom - 1] == null) {
                             penonton[baris - 1][kolom - 1] = nama;
                             System.out.println("Data penonton berhasil dimasukkan.");
@@ -46,11 +46,8 @@ public class BioskopWithScanner02 {
                 System.out.println("Daftar penonton:");
                 for (int i = 0; i < penonton.length; i++) {
                     for (int j = 0; j < penonton[i].length; j++) {
-                        if (penonton[i][j] != null) {
-                            System.out.println("Baris " + (i + 1) + ", Kolom " + (j + 1) + ": " + penonton[i][j]);
-                        } else {
-                            System.out.println("Baris " + (i + 1) + ", Kolom " + (j + 1) + ": Kosong");
-                        }
+
+                        System.out.println("Baris " + (i + 1) + ", Kolom " + (j + 1) + ": " + (penonton[i][j] != null ? penonton[i][j] : "***"));
                     }
                 }
             } else if (pilihan == 3) {
